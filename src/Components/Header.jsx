@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
 
 const Header = () => {
-  const user = true;
+  const {user , signOutHandle} = useContext(AuthContext)
   const buttons = (
     <>
-      <NavLink className="text-blue-900 md:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
+      <NavLink to={'/'} className="text-blue-900 lg:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
         Home
       </NavLink>
-      <NavLink className="text-blue-900 md:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
+      <NavLink to={'/available-cars'} className="text-blue-900 lg:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
         Available Cars
       </NavLink>
       {user ? (
         <>
           {" "}
-          <NavLink className="text-blue-900 md:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
+          <NavLink to={"/add-car"} className="text-blue-900 lg:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
             Add Car
           </NavLink>
-          <NavLink className="text-blue-900 md:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
+          <NavLink to={"/my-cars"} className="text-blue-900 lg:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
             My Cars
           </NavLink>
-          <NavLink className="text-blue-900 md:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
+          <NavLink to={"/my-bookings"} className="text-blue-900 lg:text-white border border-yellow-500 px-2 py-1 rounded-lg font-bold outline-none">
             My Booking
           </NavLink>{" "}
         </>
@@ -29,6 +30,9 @@ const Header = () => {
       )}
     </>
   );
+  const handleLogout =()=>{
+    signOutHandle()
+  }
   return (
     <div className="bg-blue-900 text-white">
       <div className="navbar bg-transparent container mx-auto">
@@ -72,11 +76,11 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <NavLink className="btn bg-white font-extrabold text-blue-900 text-xl">
+            <NavLink onClick={handleLogout} className="btn bg-white font-extrabold text-blue-900 text-xl">
               Log Out
             </NavLink>
           ) : (
-            <NavLink className="btn bg-white font-extrabold text-blue-900 text-xl">
+            <NavLink to={'/login'} className="btn bg-white font-extrabold text-blue-900 text-xl">
               Login
             </NavLink>
           )}
