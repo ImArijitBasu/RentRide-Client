@@ -1,11 +1,212 @@
-import React from 'react';
+import React, { useContext, useState } from "react";
+import { useDropzone } from "react-dropzone";
+import { AuthContext } from "../Providers/AuthProviders";
+import axios from "axios";
 
 const AddCar = () => {
-    return (
-        <div>
-            add car
+    const {user} = useContext(AuthContext)
+  const [uploadedImage, setUploadedImage] = useState(null);
+
+  const handleDrop = (acceptedFiles) => {
+    const file = acceptedFiles[0];
+    if (file) {
+      const objectUrl = URL.createObjectURL(file);
+      setUploadedImage(objectUrl);
+    }
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: "image/*",
+    onDrop: handleDrop,
+  });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const carData = Object.fromEntries(formData.entries());
+    carData.features = carData.features.split("\n");
+    const publisher = {
+        email : user?.email,
+        name : user?.displayName,
+        photo : user?.photoURL,
+    }
+    carData.publisher = publisher;
+    carData.booked = false;
+    carData.postDate = new Date();
+    carData.bookingCount = 0;
+    carData.imageUrl = uploadedImage; // Include the uploaded image URL
+    console.log(carData);
+
+    axios.post('http://localhost:5000/add-car' ,carData)
+    .then(res=>{
+        console.log(res);
+    })
+    .catch(error=>{
+        console.log(error);
+    })
+  };
+
+  return (
+    <div>
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-lg mx-auto p-4 bg-white shadow-md rounded"
+      >
+        <div className="mb-4">
+          <label
+            htmlFor="carModel"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Car Model
+          </label>
+          <input
+            type="text"
+            id="carModel"
+            name="carModel"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            required
+          />
         </div>
-    );
+
+        <div className="mb-4">
+          <label
+            htmlFor="dailyRentalPrice"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Daily Rental Price
+          </label>
+          <input
+            type="number"
+            id="dailyRentalPrice"
+            name="dailyRentalPrice"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="availability"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Availability
+          </label>
+          <select
+            id="availability"
+            name="availability"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+          >
+            <option value="Available">Available</option>
+            <option value="Unavailable">Unavailable</option>
+          </select>
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="registrationNumber"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Vehicle Registration Number
+          </label>
+          <input
+            type="text"
+            id="registrationNumber"
+            name="registrationNumber"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            required
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="features"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Features
+          </label>
+          <textarea
+            id="features"
+            name="features"
+            rows="4"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            required
+          ></textarea>
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="description"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Description
+          </label>
+          <textarea
+            id="description"
+            name="description"
+            rows="4"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            required
+          ></textarea>
+        </div>
+
+        {/* Dropzone for Image Upload */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">
+            Car Image
+          </label>
+          <div
+            {...getRootProps()}
+            className={`mt-1 border-2 border-dashed rounded-md p-4 text-center cursor-pointer ${
+              isDragActive ? "border-blue-500" : "border-gray-300"
+            }`}
+          >
+            <input {...getInputProps()} />
+            {isDragActive ? (
+              <p>Drop the image here...</p>
+            ) : (
+              <p>
+                Drag and drop an image here, or click to select one (only images
+                allowed)
+              </p>
+            )}
+          </div>
+          {uploadedImage && (
+            <div className="mt-2">
+              <p>Preview:</p>
+              <img
+                src={uploadedImage}
+                alt="Uploaded Car"
+                className="w-full h-auto rounded-md shadow-md"
+              />
+            </div>
+          )}
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="location"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Location
+          </label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default AddCar;
