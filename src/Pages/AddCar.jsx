@@ -40,7 +40,7 @@ const AddCar = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const carData = Object.fromEntries(formData.entries());
-    carData.features = carData.features.split("\n");
+    carData.features = carData.features.split(/[\n,]+/);
     const publisher = {
       email: user?.email,
       name: user?.displayName,
