@@ -2,16 +2,32 @@ import React, { useContext, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { AuthContext } from "../Providers/AuthProviders";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const AddCar = () => {
-    const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const [uploadedImage, setUploadedImage] = useState(null);
+  const imgbbApiKey = "d76c97c087075c4b2956fdd587e52a38";
 
-  const handleDrop = (acceptedFiles) => {
+  const handleDrop = async (acceptedFiles) => {
     const file = acceptedFiles[0];
     if (file) {
-      const objectUrl = URL.createObjectURL(file);
-      setUploadedImage(objectUrl);
+      const formData = new FormData();
+      formData.append("image", file);
+
+      try {
+        const response = await axios.post(
+          `https://api.imgbb.com/1/upload?key=${imgbbApiKey}`,
+          formData
+        );
+        setUploadedImage(response.data.data.url);
+        toast.success("Image uploaded successfully!");
+      } catch (error) {
+        console.error("Image upload failed:", error);
+        toast.error("Failed to upload image");
+      }
     }
   };
 
@@ -20,30 +36,33 @@ const AddCar = () => {
     onDrop: handleDrop,
   });
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const carData = Object.fromEntries(formData.entries());
     carData.features = carData.features.split("\n");
     const publisher = {
-        email : user?.email,
-        name : user?.displayName,
-        photo : user?.photoURL,
-    }
+      email: user?.email,
+      name: user?.displayName,
+      photo: user?.photoURL,
+    };
     carData.publisher = publisher;
     carData.booked = false;
     carData.postDate = new Date();
+    carData.dailyRentalPrice = parseInt(carData.dailyRentalPrice);
     carData.bookingCount = 0;
-    carData.imageUrl = uploadedImage; // Include the uploaded image URL
-    console.log(carData);
+    carData.imageUrl = uploadedImage;
 
-    axios.post('http://localhost:5000/add-car' ,carData)
-    .then(res=>{
-        console.log(res);
-    })
-    .catch(error=>{
-        console.log(error);
-    })
+    try {
+      const response = await axios.post("http://localhost:5000/add-car", carData);
+      if (response.status === 200) {
+        toast.success("Data added successfully");
+        navigate("/my-cars");
+      }
+    } catch (error) {
+      console.error("Failed to add car data:", error);
+      toast.error("Failed to add car");
+    }
   };
 
   return (
@@ -149,7 +168,6 @@ const AddCar = () => {
           ></textarea>
         </div>
 
-        {/* Dropzone for Image Upload */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
             Car Image
@@ -172,7 +190,7 @@ const AddCar = () => {
           </div>
           {uploadedImage && (
             <div className="mt-2">
-              <p>Preview:</p>
+              <p>Uploaded Image:</p>
               <img
                 src={uploadedImage}
                 alt="Uploaded Car"

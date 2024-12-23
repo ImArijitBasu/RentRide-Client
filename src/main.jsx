@@ -14,6 +14,7 @@ import AddCar from "./Pages/AddCar.jsx";
 import MyBookings from "./Pages/MyBookings.jsx";
 import Login from "./Pages/Auths/Login.jsx";
 import SignUp from "./Pages/Auths/SignUp.jsx";
+import { Toaster } from "react-hot-toast";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,6 +57,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProviders>
       <RouterProvider router={router} />
+      <Toaster/>
     </AuthProviders>
   </StrictMode>
 );
