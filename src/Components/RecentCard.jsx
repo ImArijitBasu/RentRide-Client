@@ -20,7 +20,7 @@ const RecentCard = ({ car }) => {
         <img
           src={imageUrl}
           alt={carModel}
-          className="w-full h-52 rounded-md shadow-md"
+          className="w-full h-52 rounded-md shadow-md object-cover"
         />
       ) : (
         <div className="w-full h-60 bg-gray-200 flex items-center justify-center text-gray-500">
