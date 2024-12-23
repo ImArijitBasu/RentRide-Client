@@ -76,11 +76,11 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <NavLink onClick={handleLogout} className="btn bg-white font-extrabold text-blue-900 text-xl">
+            <NavLink onClick={handleLogout} className="btn bg-yellow-500 border-blue-50 border-2 font-extrabold text-blue-900 md:text-xl text-sm">
               Log Out
             </NavLink>
           ) : (
-            <NavLink to={'/login'} className="btn bg-white font-extrabold text-blue-900 text-xl">
+            <NavLink to={'/login'} className="btn bg-yellow-500 border-blue-50 border-2 font-extrabold text-blue-900 md:text-xl text-sm">
               Login
             </NavLink>
           )}

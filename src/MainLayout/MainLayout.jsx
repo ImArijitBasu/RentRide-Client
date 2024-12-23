@@ -11,11 +11,11 @@ const MainLayout = () => {
     return <Loading></Loading>
   }
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen font-custom">
       <div className="">
         <Header></Header>
       </div>
-      <div className="container mx-auto flex-grow">
+      <div className="flex-grow">
         <Outlet></Outlet>
       </div>
       <div className="">
