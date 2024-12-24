@@ -14,6 +14,7 @@ import MyBookings from "./Pages/MyBookings.jsx";
 import Login from "./Pages/Auths/Login.jsx";
 import SignUp from "./Pages/Auths/SignUp.jsx";
 import { Toaster } from "react-hot-toast";
+import CarDetails from "./Components/CarDetails.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
       {
         path: "/available-cars",
         element: <AvailableCars></AvailableCars>,
+      },
+      {
+        path: "/available-cars/:id",
+        element: <CarDetails></CarDetails>,
+        loader : ({params}) => fetch(`http://localhost:5000/car/${params.id}`)
       },
       {
         path:"/my-cars",
