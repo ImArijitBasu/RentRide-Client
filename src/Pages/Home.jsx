@@ -8,6 +8,7 @@ import BookingTrends from '../Components/BookingTrends';
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SpecialOffer from '../Components/SpecialOffer';
+import Example from '../Components/Example';
 const Home = () => {
     const {user} = useContext(AuthContext)
     console.log(user);
@@ -27,6 +28,7 @@ const Home = () => {
             Drive Safe, Stay Wise
             </div>
             <ExtraSection></ExtraSection>
+            <Example></Example>
             <SpecialOffer></SpecialOffer>
             <BookingTrends></BookingTrends>
         </div>

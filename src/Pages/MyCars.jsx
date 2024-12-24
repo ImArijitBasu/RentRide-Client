@@ -20,7 +20,9 @@ const MyCars = () => {
   // Fetch user's cars on component mount
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/cars/${user.email}`)
+      .get(`http://localhost:5000/cars/${user.email}`,{
+        withCredentials:true
+      })
       .then((res) => {
         setCars(res.data);
         setLoading(false);
