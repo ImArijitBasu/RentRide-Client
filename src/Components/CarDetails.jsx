@@ -22,9 +22,11 @@ const CarDetails = () => {
 
         <div className="border-l-4 pl-2 border-blue-900">
           <p className="font-semibold">Features</p>
-          {car?.features?.map((feature) => (
+         {
+          Array.isArray(car.features) ?  car?.features?.map((feature) => (
             <p className="text-sm"> ⫸ {feature}</p>
-          ))}
+          )) : car.features
+         }
         </div>
         <p className="text-sm leading-loose"><span className="font-semibold">Description: </span> {car.description}</p>
         <button className="btn btn-primary btn-wide my-4"
