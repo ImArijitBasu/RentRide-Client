@@ -133,7 +133,11 @@ const MyBookings = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="container mx-auto text-center mt-5 bg-blue-900 py-4 text-white">
+        <p className="text-2xl"><span className="text-red-500">No data</span> to show <span className="text-sm">({error})</span></p>
+        <p className="text-xs text-gray-400 underline">cause there is no bookings associated with  the email : <span className="text-yellow-500">{user.email}</span></p>
+        <span className="loading loading-infinity loading-lg text-blue-200"></span>
+    </div>;
   }
 
   return (
