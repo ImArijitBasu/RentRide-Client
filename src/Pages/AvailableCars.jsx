@@ -46,9 +46,9 @@ const AvailableCars = () => {
         } else if (sortOption === "priceHighToLow") {
           return b.dailyRentalPrice - a.dailyRentalPrice;
         } else if (sortOption === "modelAZ") {
-          return a.carModel.localeCompare(b.carModel);
+          return a.postDate.localeCompare(b.postDate);
         } else if (sortOption === "modelZA") {
-          return b.carModel.localeCompare(a.carModel);
+          return b.postDate.localeCompare(a.postDate);
         }
         return 0;
       });
@@ -90,8 +90,8 @@ const AvailableCars = () => {
           <option value="">Sort By</option>
           <option value="priceLowToHigh">Price: Low to High</option>
           <option value="priceHighToLow">Price: High to Low</option>
-          <option value="modelAZ">Model: A-Z</option>
-          <option value="modelZA">Model: Z-A</option>
+          <option value="modelAZ">Oldest</option>
+          <option value="modelZA">Newest</option>
         </select>
         <button
           onClick={() => setViewMode(viewMode === "grid" ? "list" : "grid")}
