@@ -1,9 +1,43 @@
-# React + Vite
+# RentRide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
+RentRide is an online platform for car rentals, where users can view available cars, make bookings, and manage their listings. It is designed with a responsive interface and features real-time interactions for an improved user experience.
 
-Currently, two official plugins are available:
+## Live URL
+[RentRide Live](https://rentride-assignment-11.web.app)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-"# b10a11-client-side-ImArijitBasu" 
+
+## Key Features
+- **User Authentication**: Secure login and registration using Firebase Authentication.
+- **Available Cars**: Users can browse through a list of available cars for rent.
+- **Add Car**: Car owners can list their cars for rent.
+- **My Cars**: View and manage the cars listed by the user.
+- **My Bookings**: Track and manage all bookings made by the user.
+- **Responsive Design**: Fully responsive design, optimized for both desktop and mobile devices.
+- **Interactive Animations**: Smooth transitions and animations with libraries like `framer-motion`, `animate.css`, and `lottie-react`.
+
+## NPM Packages Used ✨
+  - `animate.css`: For adding smooth animations to elements.
+  - `aos`: Library for scroll animations.
+  - `axios`: Promise-based HTTP client for making API requests.
+  - `date-fns`: A utility for working with dates.
+  - `dompurify`: Library for sanitizing HTML to prevent XSS attacks.
+  - `firebase`: For user authentication and backend services.
+  - `framer-motion`: Animation library for React.
+  - `lottie-react`: For integrating Lottie animations into React components.
+  - `react`: JavaScript library for building user interfaces.
+  - `react-chartjs-2`: For rendering charts in React.
+  - `react-datepicker`: A date picker component for React.
+  - `react-dom`: For DOM-specific methods used by React.
+  - `react-dropzone`: A React component for file uploads.
+  - `react-hot-toast`: For displaying toast notifications.
+  - `react-icons`: For using vector icons in React components.
+  - `react-modal`: For displaying modals in React.
+  - `react-router-dom`: For routing and navigation in React.
+  - `recharts`: For rendering charts.
+  - `sweetalert2`: For beautiful and responsive alerts.
+  - `swiper`: A touch slider library for implementing carousels.
+  - `daisyui`: Tailwind CSS components for faster UI development.
+  - `tailwindcss`: Utility-first CSS framework for styling.
+  - `vite`: Next-generation build tool for modern web projects.
+
