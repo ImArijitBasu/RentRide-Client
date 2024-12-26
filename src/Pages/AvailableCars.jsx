@@ -15,7 +15,7 @@ const AvailableCars = () => {
     const fetchCars = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:5000/cars");
+        const response = await axios.get("https://rentride-ecru.vercel.app/cars");
         setCars(response.data);
         setFilteredCars(response.data);
       } catch (error) {

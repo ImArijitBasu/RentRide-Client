@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       {
         path: "/available-cars/:id",
         element: <CarDetails></CarDetails>,
-        loader : ({params}) => fetch(`http://localhost:5000/car/${params.id}`)
+        loader : ({params}) => fetch(`https://rentride-ecru.vercel.app/car/${params.id}`)
       },
       {
         path:"/my-cars",

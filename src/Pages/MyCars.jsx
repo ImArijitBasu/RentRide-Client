@@ -19,7 +19,7 @@ const MyCars = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/cars/${user.email}`,{
+      .get(`https://rentride-ecru.vercel.app/cars/${user.email}`,{
         withCredentials:true
       })
       .then((res) => {
@@ -34,7 +34,7 @@ const MyCars = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/cars/${id}`);
+      const response = await axios.delete(`https://rentride-ecru.vercel.app/cars/${id}`);
       setCars(cars.filter((car) => car._id !== id));
       toast.success("Car deleted successfully!");
     } catch (err) {

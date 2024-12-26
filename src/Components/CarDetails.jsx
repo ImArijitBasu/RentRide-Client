@@ -13,7 +13,7 @@ const CarDetails = () => {
   const handleBooking = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/book-car",
+        "https://rentride-ecru.vercel.app/book-car",
         {
           carId: car._id,
           userEmail: user?.email,

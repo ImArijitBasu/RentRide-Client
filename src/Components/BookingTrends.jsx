@@ -22,7 +22,7 @@ const RentPriceTrends = () => {
   });
 
   useEffect(() => {
-    axios.get('http://localhost:5000/cars/topPrice')
+    axios.get('https://rentride-ecru.vercel.app/cars/topPrice')
       .then(res => {
         const labels = res.data.map(car => car.carModel);
         const rentalPrices = res.data.map(car => car.dailyRentalPrice);

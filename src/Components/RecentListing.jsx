@@ -8,7 +8,7 @@ const RecentListing = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/cars/recent')
+        axios.get('https://rentride-ecru.vercel.app/cars/recent')
             .then(res => {
                 console.log(res.data);
                 setCars(res.data);

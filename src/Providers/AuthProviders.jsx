@@ -48,13 +48,13 @@ const AuthProviders = ({children}) => {
     const unsubscribe = onAuthStateChanged(auth, async(currentUser) => {
       if (currentUser?.email) {
         setUser(currentUser);
-        const {data} = await axios.post('http://localhost:5000/jwt',{
+        const {data} = await axios.post('https://rentride-ecru.vercel.app/jwt',{
           email: currentUser?.email
         },
         { withCredentials: true })
       } else {
         setUser(null);
-        const {data} = await axios.get('http://localhost:5000/logout',
+        const {data} = await axios.get('https://rentride-ecru.vercel.app/logout',
         { withCredentials: true })
       }
       setLoading(false);

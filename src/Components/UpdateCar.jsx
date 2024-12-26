@@ -14,7 +14,7 @@ const UpdateCar = ({ carId, isOpen, onClose }) => {
   useEffect(() => {
     if (carId) {
       axios
-        .get(`http://localhost:5000/car/${carId}`)
+        .get(`https://rentride-ecru.vercel.app/car/${carId}`)
         .then((response) => {
           setCar(response.data);
           console.log(response.data);
@@ -65,7 +65,7 @@ const UpdateCar = ({ carId, isOpen, onClose }) => {
         imageUrl: uploadedImage,
       };
       await axios.put(
-        `http://localhost:5000/update-car/${carId}`,
+        `https://rentride-ecru.vercel.app/update-car/${carId}`,
         updatedCarData
       );
       toast.success("Car details updated successfully!");

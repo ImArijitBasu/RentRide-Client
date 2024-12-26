@@ -26,14 +26,14 @@ const MyBookings = () => {
     const fetchBookings = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/my-bookings/${user.email}`,
+          `https://rentride-ecru.vercel.app/my-bookings/${user.email}`,
           { withCredentials: true }
         );
         setBookings(response.data);
         const carIds = response.data?.map((booking) => booking.carId);
         if (carIds?.length) {
           const carResponse = await axios.post(
-            `http://localhost:5000/cars-by-ids`,
+            `https://rentride-ecru.vercel.app/cars-by-ids`,
             { carIds },
             { withCredentials: true }
           );
@@ -72,7 +72,7 @@ const MyBookings = () => {
     if (isConfirmed) {
       try {
         const response = await axios.delete(
-          `http://localhost:5000/cancel-booking/${bookingId}`,
+          `https://rentride-ecru.vercel.app/cancel-booking/${bookingId}`,
           { withCredentials: true }
         );
         if (response.status === 200) {
@@ -103,7 +103,7 @@ const MyBookings = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/update-booking/${selectedBooking._id}`,
+        `https://rentride-ecru.vercel.app/update-booking/${selectedBooking._id}`,
         { bookingDate: newDate }, 
         { withCredentials: true }
       );

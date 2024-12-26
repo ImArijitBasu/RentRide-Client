@@ -54,7 +54,7 @@ const AddCar = () => {
     carData.imageUrl = uploadedImage;
 
     try {
-      const response = await axios.post("http://localhost:5000/add-car", carData);
+      const response = await axios.post("https://rentride-ecru.vercel.app/add-car", carData);
       if (response.status === 200) {
         toast.success("Data added successfully");
         navigate("/my-cars");
