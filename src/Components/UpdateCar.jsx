@@ -13,13 +13,12 @@ const UpdateCar = ({ carId, isOpen, onClose }) => {
   console.log(carId);
   useEffect(() => {
     if (carId) {
-      // Fetch existing car details if carId is provided
       axios
         .get(`http://localhost:5000/car/${carId}`)
         .then((response) => {
           setCar(response.data);
           console.log(response.data);
-          setUploadedImage(response.data.imageUrl || null); // set existing image
+          setUploadedImage(response.data.imageUrl || null); 
         })
         .catch((error) => console.error("Error fetching car details:", error));
     }
@@ -142,12 +141,11 @@ const UpdateCar = ({ carId, isOpen, onClose }) => {
             <select
               id="availability"
               name="availability"
-              defaultValue={car?.availability}
               onChange={handleChange}
               className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
             >
-              <option value="Available">Available</option>
-              <option value="Unavailable">Unavailable</option>
+              <option value="Available" selected={car?.availability === "Available"}>Available</option>
+              <option value="Unavailable" selected={car?.availability === "Unavailable"}>Unavailable</option>
             </select>
           </div>
 

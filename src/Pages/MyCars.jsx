@@ -17,7 +17,6 @@ const MyCars = () => {
   const [selectedCarId, setSelectedCarId] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Fetch user's cars on component mount
   useEffect(() => {
     axios
       .get(`http://localhost:5000/cars/${user.email}`,{
@@ -33,7 +32,6 @@ const MyCars = () => {
       });
   }, [user.email]);
 
-  // Handle delete action for car
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(`http://localhost:5000/cars/${id}`);
@@ -45,7 +43,6 @@ const MyCars = () => {
     }
   };
 
-  // Confirmation before delete
   const modernDelete = (id) => {
     toast((t) => (
       <div className="flex gap-3 items-center">
@@ -75,7 +72,6 @@ const MyCars = () => {
     ));
   };
 
-  // Sorting function for cars
   const sortCars = (option) => {
     let sortedCars = [...cars];
     if (option === "date_newest") {
@@ -91,13 +87,13 @@ const MyCars = () => {
     setSortOption(option);
   };
 
-  // Open the modal to update a car
+
   const handleUpdate = (carId) => {
     setSelectedCarId(carId);
     setIsModalOpen(true);
   };
 
-  // Close the modal
+
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
@@ -121,7 +117,7 @@ const MyCars = () => {
         </div>
       </div>
 
-      {/* Table to display cars */}
+
       <div className="overflow-x-auto">
         {cars.length > 0 ? (
           <div>
@@ -129,6 +125,7 @@ const MyCars = () => {
               <thead>
                 <tr>
                   <th>Car details</th>
+                  <th>Bookings</th>
                   <th>Date</th>
                   <th>Availability</th>
                   <th>Price</th>
@@ -161,6 +158,7 @@ const MyCars = () => {
                           </div>
                         </div>
                       </td>
+                      <td>{car.bookingCount}</td>
                       <td>{new Date(car.postDate).toLocaleDateString()}</td>
                       <td>
                         <span
