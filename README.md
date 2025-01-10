@@ -53,7 +53,7 @@ git clone https://github.com/ImArijitBasu/RentRide-Client/
 ```
 ### 2. Navigate to the project folder:
 ```bash
-cd Player-Hunt
+cd RentRide-Client
 ```
 ### 3. Install the dependencies:
 ```bash
