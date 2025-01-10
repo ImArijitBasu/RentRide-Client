@@ -41,3 +41,25 @@ RentRide is an online platform for car rentals, where users can view available c
   - `tailwindcss`: Utility-first CSS framework for styling.
   - `vite`: Next-generation build tool for modern web projects.
 
+---
+## **How to Run the Project Locally** ↴
+
+To run this project on your local machine, follow these steps:
+
+### 1. Clone the repository:
+First, clone the repository to your local machine using the following command:
+```bash
+git clone https://github.com/ImArijitBasu/RentRide-Client/
+```
+### 2. Navigate to the project folder:
+```bash
+cd Player-Hunt
+```
+### 3. Install the dependencies:
+```bash
+npm install
+```
+### 4. Start the development server:
+```bash
+npm start
+```
