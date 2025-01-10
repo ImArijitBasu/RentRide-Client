@@ -8,7 +8,7 @@ import chat from "../Lottie/chat.json";
 const WhyChoose = () => {
   return (
     <div className="container mx-auto py-4">
-        <p className="text-center flex justify-center font-extrabold text-3xl pb-4">WHY CHOOSE US  <span className="text-yellow-500"> ?</span></p>
+        <p className="text-center flex justify-center font-extrabold text-3xl  my-8 border-b-4">WHY CHOOSE US  <span className="text-yellow-500"> ?</span></p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 container mx-auto">
         {/* //!one */}
         <div className="border rounded-2xl flex flex-col justify-center items-center px-4">

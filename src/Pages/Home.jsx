@@ -24,7 +24,7 @@ const Home = () => {
             <div className="overflow-hidden">
             <RecentListing></RecentListing>
             </div>
-            <div className="container border-b-4 uppercase mx-auto text-center font-semibold text-2xl my-5">
+            <div className="container border-b-4 uppercase mx-auto text-center  text-3xl my-8 font-extrabold">
             Drive Safe, Stay Wise
             </div>
             <ExtraSection></ExtraSection>

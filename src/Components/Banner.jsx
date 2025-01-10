@@ -29,7 +29,7 @@ const Banner = () => {
             style={{
               backgroundImage: `url('/bg.jpg')`,
             }}
-            className="h-80 my-1 border-4 border-y-yellow-500 border-x-black bg-cover bg-center"
+            className="h-[800px] my-1 border-4 border-y-yellow-500 border-x-black bg-cover bg-center"
           >
             <div className="text-white text-center flex flex-col container mx-auto justify-center space-y-4 items-center h-full">
               <p className="text-yellow-500 font-extrabold text-4xl">
@@ -42,7 +42,7 @@ const Banner = () => {
                 ></div>
                 <Link
                   to="/available-cars"
-                  className="relative px-6 py-3 text-white bg-transparent rounded-lg z-10 font-semibold hover:bg-gray-800 transition duration-300"
+                  className="relative px-6 py-3 text-white bg-transparent rounded-full z-10 font-semibold hover:bg-blue-900 transition duration-300"
                 >
                   View Available Cars
                 </Link>
@@ -56,7 +56,7 @@ const Banner = () => {
             style={{
               backgroundImage: `url('/bg1.jpg')`,
             }}
-            className="h-80 my-1 border-4 border-y-yellow-500 border-x-black bg-cover bg-center"
+            className="h-[800px] my-1 border-4 border-y-yellow-500 border-x-black bg-cover bg-center"
           >
             <div className="text-white text-center flex flex-col container mx-auto justify-center space-y-4 items-center h-full">
               <p className="text-yellow-500 font-extrabold text-4xl">
@@ -69,7 +69,7 @@ const Banner = () => {
                 ></div>
                 <Link
                   to="/available-cars"
-                  className="relative px-6 py-3 text-white bg-transparent rounded-lg z-10 font-semibold hover:bg-gray-800 transition duration-300"
+                  className="relative px-6 py-3 text-white bg-transparent rounded-full z-10 font-semibold hover:bg-blue-900 transition duration-300"
                 >
                   View Available Cars
                 </Link>
@@ -83,7 +83,7 @@ const Banner = () => {
             style={{
               backgroundImage: `url('/bg2.jpg')`,
             }}
-            className="h-80 my-1 border-4 border-y-yellow-500 border-x-black bg-cover bg-center"
+            className="h-[800px] my-1 border-4 border-y-yellow-500 border-x-black bg-cover bg-center"
           >
             <div className="text-white text-center flex flex-col container mx-auto justify-center space-y-4 items-center h-full">
               <p className="text-yellow-500 font-extrabold text-4xl">
@@ -96,7 +96,7 @@ const Banner = () => {
                 ></div>
                 <Link
                   to="/available-cars"
-                  className="relative px-6 py-3 text-white bg-transparent rounded-lg z-10 font-semibold hover:bg-gray-800 transition duration-300"
+                  className="relative px-6 py-3 text-white bg-transparent rounded-full z-10 font-semibold hover:bg-blue-900 transition duration-300"
                 >
                   View Available Cars
                 </Link>
@@ -110,7 +110,7 @@ const Banner = () => {
             style={{
               backgroundImage: `url('/bg3.jpg')`,
             }}
-            className="h-80 my-1 border-4 border-y-yellow-500 border-x-black bg-cover bg-center"
+            className="h-[800px] my-1 border-4 border-y-yellow-500 border-x-black bg-cover bg-center"
           >
             <div className="text-white text-center flex flex-col container mx-auto justify-center space-y-4 items-center h-full">
               <p className="text-yellow-500 font-extrabold text-4xl">
@@ -123,7 +123,7 @@ const Banner = () => {
                 ></div>
                 <Link
                   to="/available-cars"
-                  className="relative px-6 py-3 text-white bg-transparent rounded-lg z-10 font-semibold hover:bg-gray-800 transition duration-300"
+                  className="relative px-6 py-3 text-white bg-transparent rounded-full z-10 font-semibold hover:bg-blue-900 transition duration-300"
                 >
                   View Available Cars
                 </Link>

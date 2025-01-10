@@ -66,10 +66,10 @@ const AddCar = () => {
   };
 
   return (
-    <div>
+    <div className="mt-10">
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto p-4 bg-white shadow-md rounded"
+        className="max-w-lg mx-auto p-4 bg-white shadow-md rounded border"
       >
         <div className="mb-4">
           <label
